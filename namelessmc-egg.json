@@ -1,0 +1,122 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v1",
+        "update_url": null
+    },
+    "exported_at": "2021-07-03T19:16:16-04:00",
+    "name": "Nameless Link Egg",
+    "author": "b0x@realpackage.dev",
+    "description": "An unofficial Pterodactyl egg for the Namelessmc Discord bot.",
+    "features": null,
+    "images": [
+        "namelessmc/discord-link:2.0"
+    ],
+    "file_denylist": [],
+    "startup": "java -DISCORD_TOKEN={{DISCORD_TOKEN}} -BOT_URL={{BOT_URL}} -STORAGE_TYPE={{STORAGE_TYPE}} -POSTGRES_PASSWORD={{POSTGRES_PASSWORD}} -POSTGRES_USER={{POSTGRES_USER}} -POSTGRES_DB={{POSTGRES_DB}} -POSTGRES_HOSTNAME={{POSTGRES_HOSTNAME}} -DEFAULT_LANGUAGE={{DEFAULT_LANGUAGE}} -DEFAULT_COMMAND_PREFIX={{DEFAULT_COMMAND_PREFIX}} -Dterminal.jline=false -Dterminal.ansi=true -jar {{JARFILE}}",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \"\"\r\n}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\n# Java Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\nPROJECT=java\r\n\r\napt update\r\napt install -y curl jq\r\n\r\ncd \/mnt\/server",
+            "container": "debian:buster-slim",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "JAR FILE",
+            "description": "",
+            "env_variable": "JARFILE",
+            "default_value": "Nameless-Link.jar",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20"
+        },
+        {
+            "name": "TOKEN",
+            "description": "",
+            "env_variable": "DISCORD_TOKEN",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:100"
+        },
+        {
+            "name": "Bot Url",
+            "description": "",
+            "env_variable": "BOT_URL",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:100"
+        },
+        {
+            "name": "Storage Type",
+            "description": "Stateless or ",
+            "env_variable": "STORAGE_TYPE",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:50"
+        },
+        {
+            "name": "Postgresql Host Address",
+            "description": "",
+            "env_variable": "POSTGRES_HOSTNAME",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:100"
+        },
+        {
+            "name": "Postgresql Database Name",
+            "description": "",
+            "env_variable": "POSTGRES_DB",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:100"
+        },
+        {
+            "name": "Postgresql Username",
+            "description": "",
+            "env_variable": "POSTGRES_USER",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:100"
+        },
+        {
+            "name": "Postgresql Password",
+            "description": "",
+            "env_variable": "POSTGRES_PASSWORD",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:100"
+        },
+        {
+            "name": "Default Command Prefix",
+            "description": "",
+            "env_variable": "DEFAULT_COMMAND_PREFIX",
+            "default_value": "!",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20"
+        },
+        {
+            "name": "Default Language",
+            "description": "",
+            "env_variable": "DEFAULT_LANGUAGE",
+            "default_value": "en_UK",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20"
+        }
+    ]
+}
